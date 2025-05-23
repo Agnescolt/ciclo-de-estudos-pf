@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciclo de Estudos</title>
+    <title>Ciclo de Estudos v3</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -51,14 +51,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .modal-exit {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .modal-exit-active {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
         .toast {
             animation: slideIn 0.5s ease forwards, fadeOut 0.5s ease 2.5s forwards;
             transform: translateX(100%);
@@ -88,7 +80,7 @@
         <!-- Header -->
         <header class="gradient-bg text-white p-4 shadow-lg">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-2xl font-bold">Ciclo de Estudos</h1>
+                <h1 class="text-2xl font-bold">Ciclo de Estudos v3</h1>
                 <div class="flex items-center space-x-2">
                     <button id="settingsBtn" class="p-2 rounded-full hover:bg-white/20 transition">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -723,6 +715,13 @@
             resetDataBtn.addEventListener('click', resetData);
         }
 
+        // Update UI
+        function updateUI() {
+            updateDashboard();
+            updateSubjectsList();
+            updateStats();
+        }
+
         // Switch between tabs
         function switchTab(tab) {
             // Remove active class from all tabs
@@ -1342,4 +1341,5 @@
                 toastIcon.innerHTML = `
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                    </svg>```
+                    </svg>
+                `;```
