@@ -3,56 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciclo de Estudos v3</title>
+    <title>Ciclo de Estudos v2</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f4f8;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
         }
         .gradient-bg {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
         }
         .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
         }
-        .animate-pulse-slow {
-            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.5s ease;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
         }
         .chart-bar {
-            transition: height 1s ease;
+            transition: height 0.8s ease;
         }
         .tab-active {
-            border-bottom: 3px solid #6366f1;
-            color: #6366f1;
-            font-weight: 600;
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            font-weight: 500;
         }
         .modal {
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
         .modal-enter {
             opacity: 0;
-            transform: translateY(-20px);
+            transform: translateY(-10px);
         }
         .modal-enter-active {
             opacity: 1;
             transform: translateY(0);
         }
         .toast {
-            animation: slideIn 0.5s ease forwards, fadeOut 0.5s ease 2.5s forwards;
+            animation: slideIn 0.4s ease forwards, fadeOut 0.4s ease 2.5s forwards;
             transform: translateX(100%);
             opacity: 0;
         }
@@ -65,31 +59,37 @@
         @keyframes fadeOut {
             to {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-10px);
             }
         }
-        .progress-ring-circle {
-            transition: stroke-dashoffset 0.5s ease;
-            transform: rotate(-90deg);
-            transform-origin: 50% 50%;
+        .animate-pulse-slow {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
         }
     </style>
 </head>
 <body>
     <div id="app" class="min-h-screen flex flex-col">
         <!-- Header -->
-        <header class="gradient-bg text-white p-4 shadow-lg">
+        <header class="gradient-bg text-white p-4 shadow-md">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-2xl font-bold">Ciclo de Estudos v3</h1>
-                <div class="flex items-center space-x-2">
+                <h1 class="text-xl font-bold">Ciclo de Estudos v2</h1>
+                <div class="flex items-center space-x-3">
                     <button id="settingsBtn" class="p-2 rounded-full hover:bg-white/20 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </button>
                     <button id="dataBtn" class="p-2 rounded-full hover:bg-white/20 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
                         </svg>
                     </button>
@@ -109,51 +109,51 @@
             <!-- Dashboard Tab -->
             <div id="dashboardContent" class="tab-content">
                 <!-- Today's Summary -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-semibold mb-4 text-gray-800">Resumo de Hoje</h2>
+                <div class="mb-6">
+                    <h2 class="text-lg font-semibold mb-3 text-gray-800">Resumo de Hoje</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="bg-white rounded-lg shadow p-6 card">
+                        <div class="bg-white rounded-lg shadow-sm p-5 card">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-sm text-gray-500">Tempo Estudado Hoje</p>
-                                    <p id="todayTime" class="text-2xl font-bold text-indigo-600">0h 0min</p>
+                                    <p id="todayTime" class="text-xl font-bold text-indigo-600">0h 0min</p>
                                 </div>
-                                <div class="bg-indigo-100 p-3 rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div class="bg-indigo-100 p-2 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
                             </div>
-                            <div class="mt-4">
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div id="todayProgress" class="bg-indigo-600 h-2.5 rounded-full" style="width: 0%"></div>
+                            <div class="mt-3">
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div id="todayProgress" class="bg-indigo-600 h-2 rounded-full" style="width: 0%"></div>
                                 </div>
                                 <p id="todayProgressText" class="text-xs text-gray-500 mt-1">0% da meta diária</p>
                             </div>
                         </div>
 
-                        <div class="bg-white rounded-lg shadow p-6 card">
+                        <div class="bg-white rounded-lg shadow-sm p-5 card">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-sm text-gray-500">Matérias Estudadas Hoje</p>
-                                    <p id="todaySubjects" class="text-2xl font-bold text-purple-600">0</p>
+                                    <p id="todaySubjects" class="text-xl font-bold text-purple-600">0</p>
                                 </div>
-                                <div class="bg-purple-100 p-3 rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div class="bg-purple-100 p-2 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                     </svg>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-white rounded-lg shadow p-6 card">
+                        <div class="bg-white rounded-lg shadow-sm p-5 card">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-sm text-gray-500">Ciclo Atual</p>
-                                    <p id="currentCycle" class="text-2xl font-bold text-blue-600">Dia 0</p>
+                                    <p id="currentCycle" class="text-xl font-bold text-blue-600">Dia 0</p>
                                 </div>
-                                <div class="bg-blue-100 p-3 rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div class="bg-blue-100 p-2 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
                                 </div>
@@ -163,17 +163,17 @@
                 </div>
 
                 <!-- Quick Actions -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-semibold mb-4 text-gray-800">Ações Rápidas</h2>
+                <div class="mb-6">
+                    <h2 class="text-lg font-semibold mb-3 text-gray-800">Ações Rápidas</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <button id="startStudyBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg shadow transition flex items-center justify-center">
+                        <button id="startStudyBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg shadow-sm transition flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             Iniciar Sessão de Estudo
                         </button>
-                        <button id="addSubjectBtn" class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-3 px-4 rounded-lg shadow transition flex items-center justify-center">
+                        <button id="addSubjectBtn" class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-3 px-4 rounded-lg shadow-sm transition flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
@@ -184,8 +184,8 @@
 
                 <!-- Recent Activity -->
                 <div>
-                    <h2 class="text-xl font-semibold mb-4 text-gray-800">Atividade Recente</h2>
-                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <h2 class="text-lg font-semibold mb-3 text-gray-800">Atividade Recente</h2>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                         <div id="recentActivityList" class="divide-y divide-gray-200">
                             <div class="p-4 text-center text-gray-500">
                                 Nenhuma atividade recente para mostrar.
@@ -197,9 +197,9 @@
 
             <!-- Subjects Tab -->
             <div id="subjectsContent" class="tab-content hidden">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-xl font-semibold text-gray-800">Suas Matérias</h2>
-                    <button id="addSubjectBtnTab" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg shadow transition flex items-center">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Suas Matérias</h2>
+                    <button id="addSubjectBtnTab" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg shadow-sm transition flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
@@ -208,7 +208,7 @@
                 </div>
 
                 <div id="subjectsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="bg-white rounded-lg shadow p-6 text-center text-gray-500">
+                    <div class="bg-white rounded-lg shadow-sm p-5 text-center text-gray-500">
                         Nenhuma matéria cadastrada. Clique em "Nova Matéria" para começar.
                     </div>
                 </div>
@@ -216,46 +216,46 @@
 
             <!-- Stats Tab -->
             <div id="statsContent" class="tab-content hidden">
-                <h2 class="text-xl font-semibold mb-6 text-gray-800">Estatísticas de Estudo</h2>
+                <h2 class="text-lg font-semibold mb-4 text-gray-800">Estatísticas de Estudo</h2>
                 
                 <!-- Time Distribution -->
-                <div class="bg-white rounded-lg shadow p-6 mb-6">
-                    <h3 class="text-lg font-medium mb-4 text-gray-700">Distribuição de Tempo por Matéria</h3>
-                    <div id="timeDistributionChart" class="h-64 flex items-end justify-around">
+                <div class="bg-white rounded-lg shadow-sm p-5 mb-6">
+                    <h3 class="text-base font-medium mb-4 text-gray-700">Distribuição de Tempo por Matéria</h3>
+                    <div id="timeDistributionChart" class="h-60 flex items-end justify-around">
                         <!-- Chart bars will be added here -->
                     </div>
                 </div>
 
                 <!-- Weekly Progress -->
-                <div class="bg-white rounded-lg shadow p-6 mb-6">
-                    <h3 class="text-lg font-medium mb-4 text-gray-700">Progresso Semanal</h3>
-                    <div id="weeklyProgressChart" class="h-64 flex items-end justify-around">
+                <div class="bg-white rounded-lg shadow-sm p-5 mb-6">
+                    <h3 class="text-base font-medium mb-4 text-gray-700">Progresso Semanal</h3>
+                    <div id="weeklyProgressChart" class="h-60 flex items-end justify-around">
                         <!-- Chart bars will be added here -->
                     </div>
                 </div>
 
                 <!-- Overall Stats -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-white rounded-lg shadow p-6 card">
+                    <div class="bg-white rounded-lg shadow-sm p-5 card">
                         <p class="text-sm text-gray-500">Tempo Total de Estudo</p>
-                        <p id="totalStudyTime" class="text-2xl font-bold text-indigo-600">0h 0min</p>
+                        <p id="totalStudyTime" class="text-xl font-bold text-indigo-600">0h 0min</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow p-6 card">
+                    <div class="bg-white rounded-lg shadow-sm p-5 card">
                         <p class="text-sm text-gray-500">Média Diária</p>
-                        <p id="dailyAverage" class="text-2xl font-bold text-purple-600">0h 0min</p>
+                        <p id="dailyAverage" class="text-xl font-bold text-purple-600">0h 0min</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow p-6 card">
+                    <div class="bg-white rounded-lg shadow-sm p-5 card">
                         <p class="text-sm text-gray-500">Dias Consecutivos</p>
-                        <p id="consecutiveDays" class="text-2xl font-bold text-blue-600">0 dias</p>
+                        <p id="consecutiveDays" class="text-xl font-bold text-blue-600">0 dias</p>
                     </div>
                 </div>
             </div>
         </main>
 
         <!-- Footer -->
-        <footer class="bg-white border-t border-gray-200 py-4">
+        <footer class="bg-white border-t border-gray-200 py-3">
             <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
-                &copy; 2023 Ciclo de Estudos | Desenvolvido com ❤️
+                &copy; 2023 Ciclo de Estudos | Versão 2.0
             </div>
         </footer>
     </div>
@@ -263,9 +263,9 @@
     <!-- Modals -->
     <!-- Add Subject Modal -->
     <div id="addSubjectModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md mx-4 modal modal-enter">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md mx-4 modal modal-enter">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Adicionar Nova Matéria</h3>
+                <h3 class="text-lg font-medium text-gray-800">Adicionar Nova Matéria</h3>
                 <button class="closeModal text-gray-400 hover:text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -286,11 +286,11 @@
                         <div class="color-option cursor-pointer w-8 h-8 rounded-full bg-green-500" data-color="#22c55e"></div>
                         <div class="color-option cursor-pointer w-8 h-8 rounded-full bg-teal-500" data-color="#14b8a6"></div>
                         <div class="color-option cursor-pointer w-8 h-8 rounded-full bg-blue-500" data-color="#3b82f6"></div>
-                        <div class="color-option cursor-pointer w-8 h-8 rounded-full bg-indigo-500" data-color="#6366f1"></div>
+                        <div class="color-option cursor-pointer w-8 h-8 rounded-full bg-indigo-500" data-color="#4f46e5"></div>
                         <div class="color-option cursor-pointer w-8 h-8 rounded-full bg-purple-500" data-color="#a855f7"></div>
                         <div class="color-option cursor-pointer w-8 h-8 rounded-full bg-pink-500" data-color="#ec4899"></div>
                     </div>
-                    <input type="hidden" id="subjectColor" value="#6366f1" required>
+                    <input type="hidden" id="subjectColor" value="#4f46e5" required>
                 </div>
                 <div class="mb-4">
                     <label for="subjectPriority" class="block text-sm font-medium text-gray-700 mb-1">Prioridade</label>
@@ -314,9 +314,9 @@
 
     <!-- Edit Subject Modal -->
     <div id="editSubjectModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md mx-4 modal modal-enter">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md mx-4 modal modal-enter">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Editar Matéria</h3>
+                <h3 class="text-lg font-medium text-gray-800">Editar Matéria</h3>
                 <button class="closeModal text-gray-400 hover:text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -338,7 +338,7 @@
                         <div class="edit-color-option cursor-pointer w-8 h-8 rounded-full bg-green-500" data-color="#22c55e"></div>
                         <div class="edit-color-option cursor-pointer w-8 h-8 rounded-full bg-teal-500" data-color="#14b8a6"></div>
                         <div class="edit-color-option cursor-pointer w-8 h-8 rounded-full bg-blue-500" data-color="#3b82f6"></div>
-                        <div class="edit-color-option cursor-pointer w-8 h-8 rounded-full bg-indigo-500" data-color="#6366f1"></div>
+                        <div class="edit-color-option cursor-pointer w-8 h-8 rounded-full bg-indigo-500" data-color="#4f46e5"></div>
                         <div class="edit-color-option cursor-pointer w-8 h-8 rounded-full bg-purple-500" data-color="#a855f7"></div>
                         <div class="edit-color-option cursor-pointer w-8 h-8 rounded-full bg-pink-500" data-color="#ec4899"></div>
                     </div>
@@ -369,9 +369,9 @@
 
     <!-- Study Session Modal -->
     <div id="studySessionModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md mx-4 modal modal-enter">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md mx-4 modal modal-enter">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Iniciar Sessão de Estudo</h3>
+                <h3 class="text-lg font-medium text-gray-800">Iniciar Sessão de Estudo</h3>
                 <button class="closeModal text-gray-400 hover:text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -403,9 +403,9 @@
 
     <!-- Active Study Session Modal -->
     <div id="activeSessionModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md mx-4 modal modal-enter">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md mx-4 modal modal-enter">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Sessão de Estudo em Andamento</h3>
+                <h3 class="text-lg font-medium text-gray-800">Sessão de Estudo em Andamento</h3>
                 <button id="minimizeSessionBtn" class="text-gray-400 hover:text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -416,8 +416,8 @@
                 <p id="activeSubjectName" class="text-xl font-medium mb-2">Matéria</p>
                 <div class="flex justify-center mb-4">
                     <svg class="w-32 h-32">
-                        <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="58" cx="64" cy="64"/>
-                        <circle id="progressRing" class="progress-ring-circle text-indigo-600" stroke-width="10" stroke="currentColor" fill="transparent" r="58" cx="64" cy="64" stroke-dasharray="364.4" stroke-dashoffset="364.4"/>
+                        <circle class="text-gray-200" stroke-width="8" stroke="currentColor" fill="transparent" r="58" cx="64" cy="64"/>
+                        <circle id="progressRing" class="progress-ring-circle text-indigo-600" stroke-width="8" stroke="currentColor" fill="transparent" r="58" cx="64" cy="64" stroke-dasharray="364.4" stroke-dashoffset="364.4"/>
                     </svg>
                     <div class="absolute mt-10">
                         <p id="timerDisplay" class="text-3xl font-bold">00:00</p>
@@ -438,7 +438,7 @@
     <div id="minimizedSession" class="fixed bottom-4 right-4 bg-indigo-600 text-white rounded-lg shadow-lg p-4 hidden cursor-pointer">
         <div class="flex items-center">
             <div class="mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 animate-pulse-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-pulse-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             </div>
@@ -451,9 +451,9 @@
 
     <!-- Settings Modal -->
     <div id="settingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md mx-4 modal modal-enter">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md mx-4 modal modal-enter">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Configurações</h3>
+                <h3 class="text-lg font-medium text-gray-800">Configurações</h3>
                 <button class="closeModal text-gray-400 hover:text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -486,9 +486,9 @@
 
     <!-- Data Management Modal -->
     <div id="dataModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md mx-4 modal modal-enter">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md mx-4 modal modal-enter">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Gerenciar Dados</h3>
+                <h3 class="text-lg font-medium text-gray-800">Gerenciar Dados</h3>
                 <button class="closeModal text-gray-400 hover:text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -528,7 +528,7 @@
     <div id="toast" class="fixed top-4 right-4 bg-white rounded-lg shadow-lg p-4 z-50 hidden toast">
         <div class="flex items-center">
             <div id="toastIcon" class="mr-3 text-green-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
             </div>
@@ -788,7 +788,7 @@
             saveData();
             
             addSubjectForm.reset();
-            document.getElementById('subjectColor').value = '#6366f1';
+            document.getElementById('subjectColor').value = '#4f46e5';
             colorOptions.forEach(opt => opt.style.border = '');
             
             addSubjectModal.classList.add('hidden');
@@ -1101,7 +1101,7 @@
         function updateSubjectsList() {
             if (appData.subjects.length === 0) {
                 subjectsList.innerHTML = `
-                    <div class="bg-white rounded-lg shadow p-6 text-center text-gray-500">
+                    <div class="bg-white rounded-lg shadow-sm p-5 text-center text-gray-500">
                         Nenhuma matéria cadastrada. Clique em "Nova Matéria" para começar.
                     </div>
                 `;
@@ -1133,15 +1133,15 @@
                 }[subject.priority];
                 
                 const card = document.createElement('div');
-                card.className = 'bg-white rounded-lg shadow p-6 card';
+                card.className = 'bg-white rounded-lg shadow-sm p-5 card';
                 card.innerHTML = `
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-lg font-semibold" style="color: ${subject.color}">${subject.name}</h3>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-lg font-medium" style="color: ${subject.color}">${subject.name}</h3>
                         <span class="px-2 py-1 rounded-full text-xs font-medium ${priorityClass}">${priorityLabel}</span>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-3">
                         <p class="text-sm text-gray-500">Tempo total de estudo</p>
-                        <p class="text-xl font-bold">${hours}h ${minutes}min</p>
+                        <p class="text-lg font-bold">${hours}h ${minutes}min</p>
                     </div>
                     <div class="mb-4">
                         <p class="text-sm text-gray-500">Meta diária</p>
@@ -1209,13 +1209,13 @@
             const maxTime = Math.max(...sortedSubjects.map(s => s.totalTime), 60);
             
             sortedSubjects.forEach(subject => {
-                const height = Math.max(10, (subject.totalTime / maxTime) * 200);
+                const height = Math.max(10, (subject.totalTime / maxTime) * 180);
                 
                 const barContainer = document.createElement('div');
                 barContainer.className = 'flex flex-col items-center';
                 barContainer.innerHTML = `
                     <div class="text-xs font-medium mb-1">${subject.totalTime}min</div>
-                    <div class="chart-bar w-12 rounded-t-lg" style="height: ${height}px; background-color: ${subject.color}"></div>
+                    <div class="chart-bar w-10 rounded-t-lg" style="height: ${height}px; background-color: ${subject.color}"></div>
                     <div class="text-xs mt-2 w-16 text-center truncate" title="${subject.name}">${subject.name}</div>
                 `;
                 
@@ -1251,14 +1251,14 @@
             dates.forEach((date, index) => {
                 const dayName = new Date(date).toLocaleDateString('pt-BR', { weekday: 'short' }).slice(0, 3);
                 const time = dailyTimes[index];
-                const height = Math.max(10, (time / maxTime) * 200);
+                const height = Math.max(10, (time / maxTime) * 180);
                 const isToday = date === today.toISOString().split('T')[0];
                 
                 const barContainer = document.createElement('div');
                 barContainer.className = 'flex flex-col items-center';
                 barContainer.innerHTML = `
                     <div class="text-xs font-medium mb-1">${time}min</div>
-                    <div class="chart-bar w-12 rounded-t-lg ${isToday ? 'bg-indigo-600' : 'bg-indigo-400'}" style="height: ${height}px;"></div>
+                    <div class="chart-bar w-10 rounded-t-lg ${isToday ? 'bg-indigo-600' : 'bg-indigo-400'}" style="height: ${height}px;"></div>
                     <div class="text-xs mt-2 ${isToday ? 'font-bold' : ''}">${dayName}</div>
                 `;
                 
@@ -1332,14 +1332,17 @@
             if (type === 'success') {
                 toastIcon.className = 'mr-3 text-green-500';
                 toastIcon.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
                 `;
             } else {
                 toastIcon.className = 'mr-3 text-red-500';
                 toastIcon.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
-                `;```
+                `;
+            }
+            
+            toast.classList.remove```
